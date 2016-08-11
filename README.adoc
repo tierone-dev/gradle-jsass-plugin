@@ -1,0 +1,107 @@
+= Gradle Jsass plugin
+
+A http://sass-lang.com/[SASS] plugin for http://gradle.org/[Gradle]. The plugin uses https://github.com/bit3/jsass/[Java sass compiler] to compile sass files that is using https://github.com/sass/libsass/[libsass].
+
+== Tasks
+
+The plugin adds the following tasks:
+
+=== compileSass
+
+Compiles SASS file using sassOptions.
+
+== Installation
+
+* Clone or download project 
+* Execute `gradle uploadArchives` to add project to local repositories
+* Add the plugin like this:
+
+[code, lang=groovy]
+----
+apply plugin: "com.t1c.gradle.jsass.plugin"
+
+buildscript {
+  repositories {
+    jcenter()
+    mavenLocal()
+  }
+  dependencies {
+    classpath "com.t1c.gradle.jsass:gradle-jsass-plugin:1.0.0"
+	classpath "io.bit3:jsass:5.2.0"
+  }
+}
+----
+
+== Configuration
+
+General configuration for the plugin goes inside a `sassOptions` block in your build file and will applied to all tasks. For example:
+
+[code, lang=groovy]
+----
+sassOptions {
+  sassDir = project.file('src/scss')
+  cssDir = project.file('src/main/webapp/css')
+  outputStyle = "compressed"
+}
+----
+
+=== Configuration parameters
+
+Parameters supported by the plugin is:
+
+* `sassDir`: the source directory where you keep *.scss* and/or *.sass* files.
+* `cssDir`: the target directory to output compiled CSS.
+* `mainFilename`: name of main sass file to compile.
+* `outputStyle`: output style for the generated css code. Available options are: `nested`, `expanded`, `compact`, `compressed` 
+* `sourceComments`: if you want inline source comments.
+* `sourceMapEmbed`: embed sourceMappingUrl as data uri.
+
+== Installation of https://github.com/sass/libsass/[libsass] on Ubuntu
+
+You need to have the *git* package installed to clone the sassc and libsass repositories, and the *build-essential* package to run *make*. Check if they are not already installed.
+
+[code]
+----
+> sudo apt-get install git
+> sudo apt-get install build-essential
+----
+
+Next you need to download sassc and libsass by cloning the repositories using the latest release (3.3.6). In Ubuntu install them for all users in `/usr/local/lib/`.
+
+[code]
+----
+> cd /usr/local/lib/
+> sudo git clone https://github.com/sass/sassc.git --branch 3.3.6 --depth 1
+> sudo git clone https://github.com/sass/libsass.git --branch 3.3.6 --depth 1
+----
+
+To *make* sassc you need to define the `SASS_LIBSASS_PATH` variable. In Ubuntu use `/etc/environment` for all users.
+
+[code]
+----
+> sudo vim /etc/environment
+# Append line
+SASS_LIBSASS_PATH="/usr/local/lib/libsass"
+> sudo source /etc/environment
+> cd /usr/local/lib/sassc/
+> sudo make
+----
+
+Declaring `SASS_LIBSASS_PATH` variable in `/etc/environment` doesn’t seem to work for everyone. An alternative could be declaring the variable just before running make.
+
+[code]
+----
+> cd /usr/local/lib/sassc/
+> SASS_LIBSASS_PATH="/usr/local/lib/libsass"; make
+----
+
+Create a symbolic link to sassc.
+
+[code]
+----
+> cd /usr/local/bin/
+> sudo ln -s ../lib/sassc/bin/sassc sassc
+----
+
+Execute `sassc -h` for display the help message
+

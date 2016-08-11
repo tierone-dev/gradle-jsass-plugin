@@ -1,0 +1,48 @@
+
+group = 'com.t1c.gradle.jsass'
+version = '1.0.0'
+
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+sourceCompatibility = 1.8
+
+// correct this
+ext {
+	LOCAL_REPOSITORY = "/disk2/development/git/gradle-repository"
+}
+
+dependencies {
+    compile gradleApi()
+    
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.10'
+    
+    // https://mvnrepository.com/artifact/io.bit3/jsass
+    compile group: 'io.bit3', name: 'jsass', version: '5.2.0'
+	
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
+	
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
+    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.21'
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'commons-io:commons-io:2.5'
+}
+
+jar {
+    exclude ('**/lombok.config')
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+uploadArchives {
+    repositories {
+		mavenLocal()
+    }
+}
+
