@@ -51,8 +51,8 @@ Parameters supported by the plugin is:
 
 * `sassDir`: the source directory where you keep *.scss* and/or *.sass* files.
 * `cssDir`: the target directory to output compiled CSS.
-* `mainFilename`: name of main sass file to compile.
-* `outputStyle`: output style for the generated css code. Available options are: `nested`, `expanded`, `compact`, `compressed` 
+* `mainFilename`: name of main sass file to compile. Default value: `main.scss`.
+* `outputStyle`: output style for the generated css code. Default value: `compressed`. Available options are: `nested`, `expanded`, `compact`, `compressed` 
 * `sourceComments`: if you want inline source comments.
 * `sourceMapEmbed`: embed sourceMappingUrl as data uri.
 
