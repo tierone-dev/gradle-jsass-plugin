@@ -92,7 +92,7 @@ Declaring `SASS_LIBSASS_PATH` variable in `/etc/environment` doesn’t seem to w
 [code]
 ----
 > cd /usr/local/lib/sassc/
-> SASS_LIBSASS_PATH="/usr/local/lib/libsass"; make
+> SASS_LIBSASS_PATH="/usr/local/lib/libsass" make
 ----
 
 Create a symbolic link to sassc.
