@@ -24,7 +24,7 @@ buildNumber.properties
 
 # Package Files #
 #*.jar
-clipone-application/src/dist/shared/*.jar
+c1-application/src/dist/shared/*.jar
 *.war
 *.ear
 *.gz
