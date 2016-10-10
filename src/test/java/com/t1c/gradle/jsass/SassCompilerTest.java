@@ -32,14 +32,6 @@ public class SassCompilerTest {
   }
 
   @Test
-  public void checkEmptyMainFilename() throws Exception {
-    thrown.expect(IllegalArgumentException.class);
-    final CompileSassOptions options = new CompileSassOptions();
-    options.setMainFilename(null);
-    new SassCompiler(options).compile();
-  }
-
-  @Test
   public void checkEmptyOutputStyle() throws Exception {
     thrown.expect(IllegalArgumentException.class);
     final CompileSassOptions options = new CompileSassOptions();
@@ -67,7 +59,6 @@ public class SassCompilerTest {
     final CompileSassOptions options = new CompileSassOptions();
     options.setSassDir(ioFolder);
     options.setCssDir(ioFolder);
-    options.setMainFilename("stylesheets.scss");
 
     new SassCompiler(options).compile();
     final String content = getStylesheetsContent(ioFolder);

@@ -1,9 +1,8 @@
 package com.t1c.gradle.jsass;
 
-import io.bit3.jsass.OutputStyle;
-
 import java.io.File;
 
+import io.bit3.jsass.OutputStyle;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -22,11 +21,6 @@ public class CompileSassOptions {
    * The target directory to output compiled CSS.
    */
   private File cssDir;
-
-  /**
-   * Name of main sass file.
-   */
-  private String mainFilename = "main.scss";
 
   /**
    * Output style for the generated css code.
