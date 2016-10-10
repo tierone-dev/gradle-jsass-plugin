@@ -24,7 +24,6 @@ buildNumber.properties
 
 # Package Files #
 #*.jar
-c1-application/src/dist/shared/*.jar
 *.war
 *.ear
 *.gz
