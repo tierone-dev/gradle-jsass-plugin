@@ -25,7 +25,7 @@ public class SassCompiler {
     if (options.getSassDir() == null || !options.getSassDir().exists()) {
       throw new IllegalArgumentException("Could not found sassDir");
     }
-    if (options.getCssDir() == null || !options.getCssDir().exists()) {
+    if (options.getCssDir() == null) {
       throw new IllegalArgumentException("Could not found cssDir");
     }
     if (options.getOutputStyle() == null) {
