@@ -47,7 +47,7 @@ sassOptions {
 
 === Configuration parameters
 
-Parameters supported by the plugin is:
+Parameters supported by the plugin are:
 
 * `sassDir`: the source directory where you keep *.scss* and/or *.sass* files.
 * `cssDir`: the target directory to output compiled CSS.
