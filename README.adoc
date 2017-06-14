@@ -81,7 +81,7 @@ To *make* sassc you need to define the `SASS_LIBSASS_PATH` variable. In Ubuntu u
 ----
 > sudo vim /etc/environment
 # Append line
-SASS_LIBSASS_PATH="/usr/local/lib/libsass"  *NOTE* to exit vim saving the changes press *ESC* then *:wq* then *Enter*
+SASS_LIBSASS_PATH="/usr/local/lib/libsass"  <b>*NOTE* to exit vim saving the changes press *ESC* then *:wq* then *Enter*</b>
 > sudo source /etc/environment
 > cd /usr/local/lib/sassc/
 > sudo make
