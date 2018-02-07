@@ -12,7 +12,7 @@ import io.bit3.jsass.context.FileContext;
 import lombok.ToString;
 
 @ToString
-class FileToProcess {
+final class FileToProcess {
 
   private final Path srcBasePath;
   private final File file;
@@ -26,9 +26,13 @@ class FileToProcess {
     return file.toURI();
   }
 
+  public Path path() {
+    return file.toPath();
+  }
+
   /**
    * Compile file to css
-   * 
+   *
    * @param jsassOptions
    * @return
    * @throws CompilationException
@@ -40,7 +44,7 @@ class FileToProcess {
 
   /**
    * Get path after base dir and without complete name
-   * 
+   *
    * @return
    */
   public String partialPath() {
@@ -50,7 +54,7 @@ class FileToProcess {
 
   /**
    * Get name without extension
-   * 
+   *
    * @return
    */
   public String name() {

@@ -1,5 +1,6 @@
 package com.t1c.gradle.jsass;
 
+import io.bit3.jsass.CompilationException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,7 +13,7 @@ import org.slf4j.LoggerFactory;
 
 import io.bit3.jsass.Options;
 
-public class SassCompiler {
+public final class SassCompiler {
   private static final Logger LOG = LoggerFactory.getLogger(SassCompiler.class);
 
   private final CompileSassOptions options;
@@ -41,7 +42,7 @@ public class SassCompiler {
     return result;
   }
 
-  private List<FileToProcess> getInputFiles() {
+  public List<FileToProcess> getInputFiles() {
     final List<FileToProcess> result = new ArrayList<>();
     try {
       final Path sassPath = Paths.get(options.getSassDir().getAbsolutePath());
@@ -53,14 +54,20 @@ public class SassCompiler {
   }
 
   public void compile() throws Exception {
-    SassCompiler.LOG.debug("Starting compile with options: " + options);
-    checkOptions();
-    final Options jsassOptions = createJsassOptions(options);
+    SassCompiler.LOG.debug("Starting compile with options: {}", this.options);
+    this.checkOptions();
+    final Options joptions = createJsassOptions(this.options);
     for (final FileToProcess file : getInputFiles()) {
-      file.compile(jsassOptions).saveToCss(options.getCssDir());
+      file.compile(joptions).saveToCss(this.options.getCssDir());
     }
     // TODO: save source map if specified to generate
     SassCompiler.LOG.debug("Compiled successfully");
+  }
+
+  public void compile(final FileToProcess file) throws Exception {
+    file.compile(
+        createJsassOptions(this.options)).saveToCss(this.options.getCssDir()
+    );
   }
 
 }

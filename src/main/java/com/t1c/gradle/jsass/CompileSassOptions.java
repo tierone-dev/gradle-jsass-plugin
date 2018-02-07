@@ -37,6 +37,16 @@ public class CompileSassOptions {
    */
   private boolean sourceMapEmbed = false;
 
+  /**
+   * Save sourcemap file if {@value #sourceMapEmbed} is false
+   */
+  private boolean saveSourceMap = false;
+
+  /**
+   * Watch for modifications in {@value #sassDir}
+   */
+  private boolean watch;
+
   public void setOutputStyle(final OutputStyle outputStyle) {
     this.outputStyle = outputStyle;
   }
