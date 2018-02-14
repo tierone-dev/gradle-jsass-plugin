@@ -8,7 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.Collection;
 
-public class FileToProcessVisitor implements FileVisitor<Path> {
+public final class FileToProcessVisitor implements FileVisitor<Path> {
 
   private final Path srcBasePath;
   private final Collection<FileToProcess> container;
