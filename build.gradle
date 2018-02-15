@@ -7,11 +7,6 @@ apply plugin: 'maven'
 
 sourceCompatibility = 1.8
 
-// correct this
-ext {
-	LOCAL_REPOSITORY = "/disk2/development/git/gradle-repository"
-}
-
 dependencies {
     compile gradleApi()
     
