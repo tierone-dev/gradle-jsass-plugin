@@ -55,6 +55,8 @@ Parameters supported by the plugin are:
 * `outputStyle`: output style for the generated css code. Default value: `compressed`. Available options are: `nested`, `expanded`, `compact`, `compressed` 
 * `sourceComments`: if you want inline source comments.
 * `sourceMapEmbed`: embed sourceMappingUrl as data uri.
+* `saveSourceMap` (boolean): save source map file
+* `watch` (boolean): watch files for modification and recompile
 
 == Installation of https://github.com/sass/libsass/[libsass] on Ubuntu
 
