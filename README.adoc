@@ -54,7 +54,7 @@ Parameters supported by the plugin are:
 * `mainFilename`: name of main sass file to compile. Default value: `main.scss`.
 * `outputStyle`: output style for the generated css code. Default value: `compressed`. Available options are: `nested`, `expanded`, `compact`, `compressed` 
 * `sourceComments`: if you want inline source comments.
-* `sourceMapEmbed`: embed sourceMappingUrl as data uri.
+* `sourceMapEmbed` (boolean): embed sourceMappingUrl as data uri.
 * `saveSourceMap` (boolean): save source map file
 * `watch` (boolean): watch files for modification and recompile
 
